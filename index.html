@@ -15,7 +15,7 @@
  * Based on a Codrops tutorial:
  * http://tympanus.net/codrops/2016/04/26/the-aviator-animating-basic-3d-scene-threejs/
  */
- module.exports.Primitive = AFRAME.registerPrimitive('a-ocean', {
+AFRAME.registerPrimitive('a-ocean', {
   defaultComponents: {
     ocean: {},
     rotation: {x: -90, y: 0, z: 0}
@@ -33,7 +33,7 @@
   }
 });
 
-module.exports.Component = AFRAME.registerComponent('ocean', {
+AFRAME.registerComponent('ocean', {
   schema: {
     // Dimensions of the ocean area.
     width: {default: 10, min: 0},
@@ -138,7 +138,8 @@ module.exports.Component = AFRAME.registerComponent('ocean', {
       <a-light type="ambient" color="#ccc"></a-light>
       <a-light color="#ddf" distance="100" intensity="0.4" type="point"></a-light>
       <a-light color="#ddf" position="3 10 -10" distance="50" intensity="0.4" type="point"></a-light>
-
+	  <a-entity oculus-touch-controls="hand: left"></a-entity>
+	  <a-entity oculus-touch-controls="hand: right"></a-entity>
     </a-scene>
   </body>
 </html>
