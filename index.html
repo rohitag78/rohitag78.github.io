@@ -4,6 +4,8 @@
 <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
 <script src="https://sdk.altvr.com/libs/altspace.js/2.9.0/altspace.min.js"></script>
 <script src="https://unpkg.com/aframe-stock-ticker@1.0.0/dist/aframe-stock-ticker.umd.js"></script>
+<script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+<script src="https://unpkg.com/aframe-physics-system@1.4.0/dist/aframe-physics-system.min.js"></script>
 
 
 <script>
@@ -22,6 +24,24 @@ AFRAME.registerComponent('color-cycle', {
             self.el.setAttribute('color', 'rgb('+rgb.join(',')+')');
         });
     }
+});
+
+AFRAME.registerPrimitive('a-ocean', {
+  // Attaches the `ocean` component by default.
+  // Defaults the ocean to be parallel to the ground.
+  defaultComponents: {
+    ocean: {},
+    rotation: {x: -90, y: 0, z: 0}
+  },
+
+  // Maps HTML attributes to the `ocean` component's properties.
+  mappings: {
+    width: 'ocean.width',
+    depth: 'ocean.depth',
+    density: 'ocean.density',
+    color: 'ocean.color',
+    opacity: 'ocean.opacity'
+  }
 });
 
 </script>
@@ -43,7 +63,7 @@ AFRAME.registerComponent('color-cycle', {
         position="-3 1 -4"
         stock-chart="symbol:AAPL; interval:1week; length:50; width: 5; height: 2.5;">
 	</a-entity>
--->	
+
 	<a-entity 
 	position="-5 2 -4" 
 	stock-chart="symbol:ETH/USD; interval:1day">
@@ -63,6 +83,8 @@ AFRAME.registerComponent('color-cycle', {
 	position="0 -1 -4" 
 	stock-chart="symbol:MSFT; interval:1day">
 	</a-entity>>
+-->	
+<a-ocean color="aqua" depth="100" width="100"></a-ocean>
 
 	</a-scene>
 </body>
