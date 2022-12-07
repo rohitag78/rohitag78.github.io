@@ -1,101 +1,45 @@
-<!DOCTYPE html>
-<html><head>
-<!--<script>window.TWELVE_API_KEY = "fb3910c18dmshe12899bd21ab794p1d9d6ejsn1328fabe854c"</script>
-<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-<script src="https://sdk.altvr.com/libs/altspace.js/2.9.0/altspace.min.js"></script>
-<script src="https://unpkg.com/aframe-stock-ticker@1.0.0/dist/aframe-stock-ticker.umd.js"></script>-->
-<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-<script src="https://unpkg.com/aframe-physics-system@1.2.0/dist/aframe-physics-system.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no,maximum-scale=1">
+    <title>Examples • Hex Grid</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="../bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/fernandojsg/aframe-teleport-controls@master/dist/aframe-teleport-controls.min.js"></script>
+  </head>
+  <body>
+    <a-scene fog="type: exponential; color: #F2AE72; density: 0.03;">
+      <!-- Spinning gem. -->
+      <a-box rotation="45 0 45"
+             position="-6 0.5 -7"
+             scale="0.6 0.6 0.6"
+             color="#F5F5F5" >
+        <a-animation attribute="rotation"
+                     easing="linear"
+                     dur="10000"
+                     fill="forwards"
+                     to="45 360 45"
+                     repeat="indefinite"></a-animation>
+      </a-box>
 
-<script>
-/*
-// an example custom component, that will change the color when clicked
-AFRAME.registerComponent('color-cycle', {
-    schema: {},
-    init: function(){
-        var self = this;
-        this.el.addEventListener('click', function(){
-            var rgb = [
-                Math.floor(Math.random()*255),
-                Math.floor(Math.random()*255),
-                Math.floor(Math.random()*255)
-            ];
-            self.el.setAttribute('color', 'rgb('+rgb.join(',')+')');
-        });
-    }
-});
-*/
-AFRAME.registerPrimitive('a-ocean', {
-  // Attaches the `ocean` component by default.
-  // Defaults the ocean to be parallel to the ground.
-  defaultComponents: {
-    ocean: {},
-    rotation: {x: -90, y: 0, z: 0}
-  },
+      <!-- Hex grid. -->
+      <a-hexgrid id="grid"
+                 src="hexmap.json"
+                 material="color: #47BF92"
+                 scale="0.2 0.2 0.2"
+                 position="0 -2.5 0"></a-hexgrid>
 
-  // Maps HTML attributes to the `ocean` component's properties.
-  mappings: {
-    width: 'ocean.width',
-    depth: 'ocean.depth',
-    density: 'ocean.density',
-    color: 'ocean.color',
-    opacity: 'ocean.opacity'
-  }
-});
+      <!-- Water. -->
+      <a-ocean color="#77E3EE" position="0 -1.5 0" width="150" depth="150"></a-ocean>
 
-</script>
+      <!-- Sky. -->
+      <a-sky color="#F2AE72"></a-sky>
 
-
-
-</head>
-<body>
-
-<!-- set up the scene -->
-<!--<a-scene altspace='vertical-align: bottom;'>-->
-    <!--<a-box position='0 1 0' color-cycle></a-box>
-		<a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
-		<a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
-		<a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
-		<a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>-->
-      <!--Stock Tickers-->
- <!--   <a-entity
-        position="-3 1 -4"
-        stock-chart="symbol:AAPL; interval:1week; length:50; width: 5; height: 2.5;">
-	</a-entity>
-
-	<a-entity 
-	position="-5 2 -4" 
-	stock-chart="symbol:ETH/USD; interval:1day">
-	</a-entity>>
-
-	<a-entity 
-	position="-5 -1 -4" 
-	stock-chart="symbol:AAPL; interval:1day">
-	</a-entity>>
-
-	<a-entity 
-	position="0 2 -4" 
-	stock-chart="symbol:BTC/USD; interval:1day">
-	</a-entity>>
-
-	<a-entity 
-	position="0 -1 -4" 
-	stock-chart="symbol:MSFT; interval:1day">
-	</a-entity>>
--->	
-
-<a-scene physics>
-	<a-box position="-1 1 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
-	<!--<a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" static-body></a-plane>
-	<a-sky color="#ECECEC"></a-sky>-->
-	<a-ocean color="aqua" depth="100" width="100" opacity="0.5"></a-ocean>
-</a-scene>
-
-
-
-<!--</a-scene>-->
-</body>
-
+      <!-- Controls. -->
+      <a-entity vive-controls="hand: left"></a-entity>
+      <a-entity vive-controls="hand: right"
+                teleport-controls="landingMaxAngle: 360; collisionEntities: #grid;"></a-entity>
+    </a-scene>
+  </body>
 </html>
-
