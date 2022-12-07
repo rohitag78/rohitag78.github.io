@@ -52,7 +52,7 @@ AFRAME.registerPrimitive('a-ocean', {
 <body>
 
 <!-- set up the scene -->
-<a-scene altspace='vertical-align: bottom;'>
+<!--<a-scene altspace='vertical-align: bottom;'>-->
     <!--<a-box position='0 1 0' color-cycle></a-box>
 		<a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
 		<a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
@@ -84,9 +84,17 @@ AFRAME.registerPrimitive('a-ocean', {
 	stock-chart="symbol:MSFT; interval:1day">
 	</a-entity>>
 -->	
-<a-ocean color="aqua" depth="100" width="100"></a-ocean>
 
-	</a-scene>
+<a-scene physics>
+	<a-box position="-1 4 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
+	<a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" static-body></a-plane>
+	<a-sky color="#ECECEC"></a-sky>
+	<a-ocean color="aqua" depth="100" width="100"></a-ocean>
+</a-scene>
+
+
+
+<!--</a-scene>-->
 </body>
 
 </html>
