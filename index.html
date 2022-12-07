@@ -29,7 +29,8 @@ AFRAME.registerPrimitive('a-ocean', {
     speed: 'ocean.speed',
     speedVariance: 'ocean.speedVariance',
     color: 'ocean.color',
-    opacity: 'ocean.opacity'
+    opacity: 'ocean.opacity',
+    height: 'ocean.height'
   }
 });
 
@@ -38,6 +39,7 @@ AFRAME.registerComponent('ocean', {
     // Dimensions of the ocean area.
     width: {default: 10, min: 0},
     depth: {default: 10, min: 0},
+    height: {default:1, min: 0},
 
     // Density of waves.
     density: {default: 10},
