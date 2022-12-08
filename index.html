@@ -93,8 +93,9 @@ AFRAME.registerComponent('ocean', {
     el.setObject3D('mesh', this.mesh);
 
     console.log(el.getAttribute('position'));
+    var level = -5;
 
-    el.setAttribute('position', {x:1, y:-5, z:-3});
+    el.setAttribute('position', {x:1, y:level, z:-3});
   },
 
   remove: function () {
