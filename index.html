@@ -29,8 +29,8 @@ AFRAME.registerPrimitive('a-ocean', {
     speed: 'ocean.speed',
     speedVariance: 'ocean.speedVariance',
     color: 'ocean.color',
-    opacity: 'ocean.opacity',
-    height: 'ocean.height'
+    opacity: 'ocean.opacity'//,
+    //height: 'ocean.height'
   }
 });
 
@@ -39,7 +39,7 @@ AFRAME.registerComponent('ocean', {
     // Dimensions of the ocean area.
     width: {default: 10, min: 0},
     depth: {default: 10, min: 0},
-    height: {default:1, min: 0},
+    //height: {default:1, min: 0},
 
     // Density of waves.
     density: {default: 10},
@@ -151,7 +151,7 @@ AFRAME.registerPrimitive('a-grid', {
 	  <a-box position="-1 -2 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
 	  <a-plane position="1 -2 -3" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" static-body></a-plane>
       <!-- Ocean -->
-      <a-ocean width="5000" depth="5000" density="400" opacity="0.8" position="-10 -10 -10" height="5"></a-ocean>
+      <a-ocean width="5000" depth="5000" density="400" opacity="0.8" position="-1 -2 -3"></a-ocean>
 
       <!--<a-grid></a-grid>-->
       <!-- Sky 
