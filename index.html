@@ -64,6 +64,7 @@ AFRAME.registerComponent('ocean', {
    * not guaranteed to have parsed when this component is initialized.
    */
   play: function () {
+    console.log("Calling Play");
     const el = this.el;
     const data = this.data;
     let material = el.components.material;
@@ -93,13 +94,15 @@ AFRAME.registerComponent('ocean', {
     this.mesh = new THREE.Mesh(geometry, material.material);
     el.setObject3D('mesh', this.mesh);
 
+    var x = document.querySelector('#camera')
+    console.log(x.querySelector('position'));
+    
     console.log(el.getAttribute('position'));
     var level = -36;
     el.setAttribute('position', {x:0, y:level, z:0});
     
     
-    var x = document.querySelector('#camera')
-    console.log(x);
+
   
   },
 
