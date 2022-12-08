@@ -57,6 +57,7 @@ AFRAME.registerComponent('ocean', {
     opacity: {default: 0.8}
   },
 
+  
   /**
    * Use play() instead of init(), because component mappings – unavailable as dependencies – are
    * not guaranteed to have parsed when this component is initialized.
@@ -110,7 +111,25 @@ AFRAME.registerComponent('ocean', {
   }
 });
 
-
+AFRAME.registerPrimitive('a-grid', {
+  defaultComponents: {
+    geometry: {
+      primitive: 'plane',
+      width: 75,
+      height: 75
+    },
+    rotation: {x: -90, y: 0, z: 0},
+    material: {
+      src: 'url(https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v1.16.3/assets/grid.png)',
+      repeat: '75 75'
+    }
+  },
+  mappings: {
+    width: 'geometry.width',
+    height: 'geometry.height',
+    src: 'material.src'
+  }
+});
 </script>
 
 
@@ -130,9 +149,10 @@ AFRAME.registerComponent('ocean', {
       <a-entity rotation="-90 0 0" scale="0.3 0.3 0.3" ply-model="src: url(https://github.com/n5ro/aframe-extras/tree/master/examples/assets/island-hut/island-hut.bake.ply);"></a-entity>-->
 	  <a-box position="-1 -2 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
 	  <a-plane position="1 -2 -3" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" static-body></a-plane>
-      <!-- Ocean -->
+      <!-- Ocean 
       <a-ocean width="5000" depth="5000" density="400" opacity="0.8" position="-10 -10 -10" height="5"></a-ocean>
-
+-->
+      <a-grid></a-grid>
       <!-- Sky 
       <a-sky color="#AADDF0"></a-sky>-->
 
