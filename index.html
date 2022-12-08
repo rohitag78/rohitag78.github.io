@@ -92,6 +92,8 @@ AFRAME.registerComponent('ocean', {
     this.mesh = new THREE.Mesh(geometry, material.material);
     el.setObject3D('mesh', this.mesh);
 
+    console.log(geometry);
+
     geometry.setAttribute('position', {x:1, y:-5, z:-3});
   },
 
