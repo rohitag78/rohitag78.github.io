@@ -94,8 +94,12 @@ AFRAME.registerComponent('ocean', {
 
     console.log(el.getAttribute('position'));
     var level = -36;
-
     el.setAttribute('position', {x:1, y:level, z:-3});
+    
+    
+    var x = document.querySelector('#camera')
+    console.log(x);
+  
   },
 
   remove: function () {
@@ -148,12 +152,12 @@ AFRAME.registerPrimitive('a-grid', {
   <body>
     <a-scene>
       <!-- Camera -->
-      <!-- -->
+      <!-- ="pointerLockEnabled: false"-->
       <a-entity id="rig" movement-controls position="3 3.4 -10">
         <a-entity id="camera"
                   camera
                   position="-25 -3 -25"
-                  look-controls="pointerLockEnabled: false"
+                  look-controls
                   wasd-controls >
         </a-entity>
       </a-entity>
