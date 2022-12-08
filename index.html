@@ -91,6 +91,8 @@ AFRAME.registerComponent('ocean', {
 
     this.mesh = new THREE.Mesh(geometry, material.material);
     el.setObject3D('mesh', this.mesh);
+
+    console.log(el);
   },
 
   remove: function () {
@@ -132,9 +134,9 @@ AFRAME.registerPrimitive('a-grid', {
 });
 
 
-var sceneEl = document.querySelectorAll('a-box');
-console.log(this.sceneEl);
-console.log(document);
+//var sceneEl = document.querySelectorAll('a-box');
+//console.log(this.sceneEl);
+//console.log(document);
 </script>
 
 
