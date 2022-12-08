@@ -149,12 +149,14 @@ AFRAME.registerPrimitive('a-grid', {
     <a-scene>
       <!-- Camera -->
       <!-- -->
-      <!--<a-entity id="rig" movement-controls position="3 3.4 -10">-->
+      <a-entity id="rig" movement-controls position="3 3.4 -10">
         <a-entity id="camera"
                   camera
-                  position="-5 -3 -5"
-                  look-controls="pointerLockEnabled: false"></a-entity>
-      <!--</a-entity>-->
+                  position="-25 -3 -25"
+                  look-controls="pointerLockEnabled: false"
+                  wasd-controls >
+        </a-entity>
+      </a-entity>
     
       <!-- Island - Made in MagicaVoxel. 
       <a-entity rotation="-90 0 0" scale="0.3 0.3 0.3" ply-model="src: url(https://github.com/n5ro/aframe-extras/tree/master/examples/assets/island-hut/island-hut.bake.ply);"></a-entity>-->
@@ -162,7 +164,7 @@ AFRAME.registerPrimitive('a-grid', {
 	  <a-plane position="0 0.1 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4" static-body></a-plane>
     <a-plane rotation="-90 0 0" width="2" height="2" color="#000000" static-body></a-plane>
       <!-- Ocean -->
-      <a-ocean width="40" depth="40" density="5" opacity="0.8" position="0 -2 0"></a-ocean>
+      <a-ocean width="70" depth="70" density="5" opacity="0.8" position="0 -2 0"></a-ocean>
 
       <!--<a-grid></a-grid>-->
       <!-- Sky 
