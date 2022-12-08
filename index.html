@@ -158,13 +158,14 @@ AFRAME.registerPrimitive('a-grid', {
                   camera
                   position="-25 -3 -25"
                   look-controls="pointerLockEnabled: true"
-                  wasd-controls >
+                  wasd-controls
+                  spectator="true" >
         </a-entity>
       </a-entity>
     
       <!-- Island - Made in MagicaVoxel. 
       <a-entity rotation="-90 0 0" scale="0.3 0.3 0.3" ply-model="src: url(https://github.com/n5ro/aframe-extras/tree/master/examples/assets/island-hut/island-hut.bake.ply);"></a-entity>-->
-	  <a-box position="-1 -2 -3" rotation="0 45 0" color="#4CC3D9" dynamic-body></a-box>
+	  <a-box position="-1 -2 -3" rotation="0 45 0" color="#4CC3D9" static-body></a-box>
 	  <a-plane position="0 0.1 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4" static-body></a-plane>
     <a-plane rotation="-90 0 0" width="2" height="2" color="#000000" static-body></a-plane>
       <!-- Ocean -->
