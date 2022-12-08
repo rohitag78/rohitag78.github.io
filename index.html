@@ -93,7 +93,7 @@ AFRAME.registerComponent('ocean', {
     el.setObject3D('mesh', this.mesh);
 
     console.log(el.getAttribute('position'));
-    var level = -10;
+    var level = -36;
 
     el.setAttribute('position', {x:1, y:level, z:-3});
   },
@@ -152,7 +152,7 @@ AFRAME.registerPrimitive('a-grid', {
       <!--<a-entity id="rig" movement-controls position="3 3.4 -10">-->
         <a-entity id="camera"
                   camera
-                  position="0 -3 0"
+                  position="-5 -3 -5"
                   look-controls="pointerLockEnabled: false"></a-entity>
       <!--</a-entity>-->
     
