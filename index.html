@@ -7,7 +7,8 @@
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 <!--	<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.controls.min.js"></script>
--->  
+-->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>  
 <script>
 /**
  * Flat-shaded ocean primitive.
@@ -150,7 +151,7 @@ AFRAME.registerPrimitive('a-grid', {
 
 </head>
   <body>
-    <a-scene>
+    <a-scene embedded arjs>
       <!-- Camera -->
       <!-- -->
       <a-entity id="rig" movement-controls position="3 3.4 -10">
