@@ -100,7 +100,7 @@ AFRAME.registerComponent('ocean', {
     
     console.log(el.getAttribute('position'));
     var level = -36;
-    el.setAttribute('position', {x:0, y:level, z:0});
+    el.setAttribute('position', {x:0, y:0, z:-36});
     
     
 
@@ -123,8 +123,7 @@ AFRAME.registerComponent('ocean', {
       vprops.ang += vprops.speed * dt;
     }
     posAttribute.needsUpdate = true;
-    var x = document.querySelector('#camera')
-    console.log(x.getAttribute('position'));
+
   }
 });
 
