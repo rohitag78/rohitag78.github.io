@@ -112,7 +112,7 @@ AFRAME.registerComponent('ocean', {
   },
 
   tick: function (t, dt) {
-    console.log("Calling tick");
+
     if (!dt) return;
 
     const posAttribute = this.mesh.geometry.getAttribute('position');
@@ -123,6 +123,8 @@ AFRAME.registerComponent('ocean', {
       vprops.ang += vprops.speed * dt;
     }
     posAttribute.needsUpdate = true;
+    var x = document.querySelector('#camera')
+    console.log(x.getAttribute('position'));
   }
 });
 
