@@ -100,7 +100,7 @@ AFRAME.registerComponent('ocean', {
     
     console.log(el.getAttribute('position'));
     var level = -20;
-    el.setAttribute('position', {x:0, y:level, z:0});
+    el.setAttribute('position', {x:10, y:level, z:10});
     
     
 
@@ -172,9 +172,11 @@ AFRAME.registerPrimitive('a-grid', {
     
       <!-- Island - Made in MagicaVoxel. 
       <a-entity rotation="-90 0 0" scale="0.3 0.3 0.3" ply-model="src: url(https://github.com/n5ro/aframe-extras/tree/master/examples/assets/island-hut/island-hut.bake.ply);"></a-entity>-->
-	  <a-box position="-1 -2 -3" rotation="0 45 0" color="#4CC3D9" static-body></a-box>
+<!--	  
+    <a-box position="-1 -2 -3" rotation="0 45 0" color="#4CC3D9" static-body></a-box>
 	  <a-plane position="0 -1 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4" static-body></a-plane>
     <a-plane rotation="-90 0 0" width="1" height="1" color="#000000" static-body></a-plane>
+-->
       <!-- Ocean -->
       <a-ocean width="25" depth="25" density="5" opacity="0.8" position="0 -2 0"></a-ocean>
 
