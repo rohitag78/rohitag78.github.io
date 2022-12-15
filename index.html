@@ -100,7 +100,7 @@ AFRAME.registerComponent('ocean', {
     
     console.log(el.getAttribute('position'));
     var level = -20;
-    el.setAttribute('position', {x:10, y:level, z:10});
+    el.setAttribute('position', {x:0, y:level, z:0});
     
     
 
@@ -163,7 +163,7 @@ AFRAME.registerPrimitive('a-grid', {
       <!--<a-entity id="rig" movement-controls position="25 0 0">-->
         <a-entity id="camera"
                   camera
-                  position="0 -2 0"
+                  position="10 -2 10"
                   look-controls="pointerLockEnabled: true"
                   wasd-controls
                   spectator="true" >
@@ -178,7 +178,7 @@ AFRAME.registerPrimitive('a-grid', {
     <a-plane rotation="-90 0 0" width="1" height="1" color="#000000" static-body></a-plane>
 -->
       <!-- Ocean -->
-      <a-ocean width="250" depth="250" density="5" opacity="0.8" position="0 -2 0"></a-ocean>
+      <a-ocean width="100" depth="100" density="5" opacity="0.8" position="0 -2 0"></a-ocean>
 
       <!--<a-grid></a-grid>-->
       <!-- Sky 
