@@ -99,8 +99,8 @@ AFRAME.registerComponent('ocean', {
     console.log(x.getAttribute('position'));
     
     console.log(el.getAttribute('position'));
-    var level = -36;
-    el.setAttribute('position', {x:0, y:0, z:-36});
+    var level = -2;
+    el.setAttribute('position', {x:0, y:0, z:level});
     
     
 
@@ -126,7 +126,7 @@ AFRAME.registerComponent('ocean', {
 
   }
 });
-
+/*
 AFRAME.registerPrimitive('a-grid', {
   defaultComponents: {
     geometry: {
@@ -146,7 +146,7 @@ AFRAME.registerPrimitive('a-grid', {
     src: 'material.src'
   }
 });
-
+*/
 
 //var sceneEl = document.querySelectorAll('a-box');
 //console.log(this.sceneEl);
@@ -159,11 +159,11 @@ AFRAME.registerPrimitive('a-grid', {
   <body>
     <a-scene> <!--embedded arjs-->
       <!-- Camera -->
-      <!-- -->
-      <a-entity id="rig" movement-controls position="3 3.4 -10">
+      <!-- 3 3.4 -10-->
+      <a-entity id="rig" movement-controls position="25 10 0">
         <a-entity id="camera"
                   camera
-                  position="-25 -3 -25"
+                  position="0 1.6 0"
                   look-controls="pointerLockEnabled: true"
                   wasd-controls
                   spectator="true" >
@@ -173,7 +173,7 @@ AFRAME.registerPrimitive('a-grid', {
       <!-- Island - Made in MagicaVoxel. 
       <a-entity rotation="-90 0 0" scale="0.3 0.3 0.3" ply-model="src: url(https://github.com/n5ro/aframe-extras/tree/master/examples/assets/island-hut/island-hut.bake.ply);"></a-entity>-->
 	  <a-box position="-1 -2 -3" rotation="0 45 0" color="#4CC3D9" static-body></a-box>
-	  <a-plane position="0 0.1 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4" static-body></a-plane>
+	  <a-plane position="0 -1 0" rotation="-90 0 0" width="1" height="1" color="#7BC8A4" static-body></a-plane>
     <a-plane rotation="-90 0 0" width="2" height="2" color="#000000" static-body></a-plane>
       <!-- Ocean -->
       <a-ocean width="700" depth="700" density="5" opacity="0.8" position="0 -2 0"></a-ocean>
