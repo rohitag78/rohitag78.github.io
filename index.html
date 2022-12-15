@@ -96,10 +96,11 @@ AFRAME.registerComponent('ocean', {
     el.setObject3D('mesh', this.mesh);
 
     var x = document.querySelector('#camera')
-    console.log(x.getAttribute('position'));
+    //console.log(x.getAttribute('position'));
     
-    console.log(el.getAttribute('position'));
+    //console.log(el.getAttribute('position'));
     var pos = el.getAttribute('position');
+    console.log(pos[0], pos[2]);
     var level = -40;
     el.setAttribute('position', {x:pos[0], y:level, z:pos[2]});
     
