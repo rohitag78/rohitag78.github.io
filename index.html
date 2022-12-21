@@ -155,6 +155,71 @@ AFRAME.registerPrimitive('a-grid', {
 //var sceneEl = document.querySelectorAll('a-box');
 //console.log(this.sceneEl);
 //console.log(document);
+
+AFRAME.registerComponent('ar-hit-test1', {
+			init: function () {
+				this.xrHitTestSource = null;
+				this.viewerSpace = null;
+				this.refSpace = null;
+
+				this.el.sceneEl.renderer.xr.addEventListener('sessionend', (ev) => {
+					this.viewerSpace = null;
+					this.refSpace = null;
+					this.xrHitTestSource = null;
+				});
+				this.el.sceneEl.renderer.xr.addEventListener('sessionstart', (ev) => {
+					let session = this.el.sceneEl.renderer.xr.getSession();
+
+					let element = this.el;
+					session.addEventListener('select', function () {
+						let position = element.getAttribute('position');
+
+						document.getElementById('ocean1').setAttribute('position', position);
+						document.getElementById('light').setAttribute('position', {
+							x: (position.x - 2),
+							y: (position.y + 4),
+							z: (position.z + 2)
+						});
+					});
+
+					session.requestReferenceSpace('viewer').then((space) => {
+						this.viewerSpace = space;
+						session.requestHitTestSource({space: this.viewerSpace})
+								.then((hitTestSource) => {
+									this.xrHitTestSource = hitTestSource;
+								});
+					});
+
+					session.requestReferenceSpace('local-floor').then((space) => {
+						this.refSpace = space;
+					});
+				});
+			},
+			tick: function () {
+				if (this.el.sceneEl.is('ar-mode')) {
+					if (!this.viewerSpace) return;
+
+					let frame = this.el.sceneEl.frame;
+					let xrViewerPose = frame.getViewerPose(this.refSpace);
+
+					if (this.xrHitTestSource && xrViewerPose) {
+						let hitTestResults = frame.getHitTestResults(this.xrHitTestSource);
+						if (hitTestResults.length > 0) {
+							let pose = hitTestResults[0].getPose(this.refSpace);
+
+							let inputMat = new THREE.Matrix4();
+							inputMat.fromArray(pose.transform.matrix);
+
+							let position = new THREE.Vector3();
+							position.setFromMatrixPosition(inputMat);
+							this.el.setAttribute('position', position);
+						}
+					}
+				}
+			}
+		});
+
+
 </script>
 
 
@@ -168,10 +233,9 @@ AFRAME.registerPrimitive('a-grid', {
       <a-scene webxr="requiredFeatures: hit-test,local-floor; 
                       optionalFeatures: dom-overlay,unbounded; 
                       overlayElement: #overlay;" 
-                ar-hit-test="target:#my-objects;type:footprint;footprintDepth:0.2;">
+                ar-hit-test1="target:#my-objects;type:footprint;footprintDepth:0.2;">
           <a-entity id="my-objects">
-              <a-ocean position="0 0 0"></a-ocean>
-              <a-ocean position="-50 2 -50"></a-ocean>
+              <a-ocean id="ocean1" position="0 1 0"></a-ocean>
           </a-entity>
      </a-scene>
 
