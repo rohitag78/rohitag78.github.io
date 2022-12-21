@@ -40,8 +40,8 @@ AFRAME.registerPrimitive('a-ocean', {
 AFRAME.registerComponent('ocean', {
   schema: {
     // Dimensions of the ocean area.
-    width: {default: 40, min: 0},
-    depth: {default: 40, min: 0},
+    width: {default: 10, min: 0},
+    depth: {default: 10, min: 0},
     //height: {default:1, min: 0},
 
     // Density of waves.
@@ -237,7 +237,6 @@ AFRAME.registerComponent('ar-hit-test1', {
       <a-scene>
           <a-entity id="my-objects">
               <a-ocean id="ocean1" position="0 -100 0"></a-ocean>
-              <a-box position="0 -100 0" rotation="0 45 0" color="#4CC3D9"></a-box>
           </a-entity>
      </a-scene>
 
