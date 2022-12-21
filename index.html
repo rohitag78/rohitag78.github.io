@@ -105,7 +105,8 @@ AFRAME.registerComponent('ocean', {
     console.log(pos.x, pos.z);
     var level = pos.y;
     el.setAttribute('position', {x:pos.x, y:level, z:pos.z});
-    
+    this.el.object3D.updateMatrixWorld();
+    console.log(pos.x, pos.z);    
     
 
   
