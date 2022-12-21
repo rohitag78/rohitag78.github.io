@@ -103,7 +103,7 @@ AFRAME.registerComponent('ocean', {
     var pos = el.getAttribute('position');
     //console.log(pos);
     console.log(pos.x, pos.z);
-    var level = -50;
+    var level = pos.y;
     el.setAttribute('position', {x:pos.x, y:level, z:pos.z});
     
     
@@ -170,13 +170,15 @@ AFRAME.registerPrimitive('a-grid', {
                       overlayElement: #overlay;" 
                 ar-hit-test="target:#my-objects;type:footprint;footprintDepth:0.2;">
           <a-entity id="my-objects">
-              <a-box rotation="0 45 0" color="#4CC3D9"></a-box>
+              <a-ocean position="0 0 0"></a-ocean>
+              <a-ocean position="-50 2 -50"></a-ocean>
           </a-entity>
      </a-scene>
 
             <!--  <a-entity environment="preset: forest; groundColor: #445; grid: cross"></a-entity>-->
       <!--<a-grid></a-grid>-->
       <!-- Sky            <a-ocean width="75" depth="75" density="50" opacity="0.8" position="0 -2 0"></a-ocean>
+                    <a-box rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sky color="#AADDF0"></a-sky>-->
 
       <!-- Lighting -->
