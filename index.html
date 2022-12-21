@@ -165,11 +165,13 @@ AFRAME.registerPrimitive('a-grid', {
 
 
  
-      <a-scene ar-hit-test="target:#my-objects;type:footprint;footprintDepth:0.2;">
-        <a-entity id="my-objects">
-           <a-box rotation="0 45 0" color="#4CC3D9"></a-box>
-
-        </a-entity>
+      <a-scene webxr="requiredFeatures: hit-test,local-floor; 
+                      optionalFeatures: dom-overlay,unbounded; 
+                      overlayElement: #overlay;" 
+                ar-hit-test="target:#my-objects;type:footprint;footprintDepth:0.2;">
+          <a-entity id="my-objects">
+              <a-box rotation="0 45 0" color="#4CC3D9"></a-box>
+          </a-entity>
      </a-scene>
 
             <!--  <a-entity environment="preset: forest; groundColor: #445; grid: cross"></a-entity>-->
