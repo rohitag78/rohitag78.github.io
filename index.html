@@ -242,15 +242,22 @@ AFRAME.registerComponent('ar-hit-test1', {
 
 
  
-    <!--  <a-scene webxr="requiredFeatures: hit-test,local-floor; 
+    <a-scene webxr="requiredFeatures: hit-test,local-floor; 
                       optionalFeatures: dom-overlay,unbounded; 
                       overlayElement: #overlay;" 
-                ar-hit-test1="target:#my-objects;type:footprint;footprintDepth:0.2;"> -->
-      <a-scene>
+                ar-hit-test1="target:#my-objects;type:footprint;footprintDepth:0.2;">
+                 
           <a-entity id="my-objects">
               <a-ocean id="ocean1" position="0 0 0"></a-ocean>
           </a-entity>
-     </a-scene>
+
+      <!--
+        <a-scene>
+          <a-entity id="my-objects">
+              <a-ocean id="ocean1" position="0 0 0"></a-ocean>
+          </a-entity>
+        </a-scene>
+      -->
 
             <!--  <a-entity environment="preset: forest; groundColor: #445; grid: cross"></a-entity>-->
       <!--<a-grid></a-grid>-->
