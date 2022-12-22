@@ -22,7 +22,7 @@
 AFRAME.registerPrimitive('a-ocean', {
   defaultComponents: {
     ocean: {},
-    rotation: {x: -90, y: 0, z: 120}
+    rotation: {x: -90, y: 90, z: 0}
   },
   mappings: {
     width: 'ocean.width',
@@ -41,8 +41,8 @@ AFRAME.registerPrimitive('a-ocean', {
 AFRAME.registerComponent('ocean', {
   schema: {
     // Dimensions of the ocean area.
-    width: {default: 50, min: 0},
-    depth: {default: 50, min: 0},
+    width: {default: 500, min: 0},
+    depth: {default: 500, min: 0},
     //height: {default:1, min: 0},
 
     // Density of waves.
@@ -248,7 +248,7 @@ AFRAME.registerComponent('ar-hit-test1', {
                 ar-hit-test1="target:#my-objects;type:footprint;footprintDepth:0.2;">
 
           <a-entity id="my-objects">
-              <a-ocean id="ocean1" position="-20 -20 -20"></a-ocean>
+              <a-ocean id="ocean1" position="10 -5 10"></a-ocean>
           </a-entity>
 
       <!--
