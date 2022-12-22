@@ -189,11 +189,15 @@ AFRAME.registerComponent('ar-hit-test1', {
 						session.requestHitTestSource({space: this.viewerSpace})
 								.then((hitTestSource) => {
 									this.xrHitTestSource = hitTestSource;
+                  console.log("this.xrHitTestSource");
+                  console.log(this.xrHitTestSource);
 								});
 					});
 
 					session.requestReferenceSpace('local-floor').then((space) => {
 						this.refSpace = space;
+            console.log("this.refSpace");
+            console.log(this.refSpace);
 					});
 				});
 			},
@@ -203,6 +207,9 @@ AFRAME.registerComponent('ar-hit-test1', {
 
 					let frame = this.el.sceneEl.frame;
 					let xrViewerPose = frame.getViewerPose(this.refSpace);
+
+          console.log("xrViewerPose");
+          console.log(xrViewerPose);
 
 					if (this.xrHitTestSource && xrViewerPose) {
 						let hitTestResults = frame.getHitTestResults(this.xrHitTestSource);
@@ -215,6 +222,9 @@ AFRAME.registerComponent('ar-hit-test1', {
 							let position = new THREE.Vector3();
 							position.setFromMatrixPosition(inputMat);
 							this.el.setAttribute('position', position);
+
+              console.log("position");
+              console.log(position);
 						}
 					}
 				}
