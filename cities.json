@@ -1,0 +1,5 @@
+[{ "id":0,"city": "Miami","y0": 0,"y1": 2.56,"y2": 6.14,"invest":0},
+ { "id":1,"city": "New York","y0": 0,"y1": 1.7,"y2": 2.8,"invest":0},
+ { "id":2,"city": "Boston","y0": 0,"y1": 1.8,"y2": 4.2,"invest":0},
+ { "id":3,"city": "Houston","y0": 0,"y1": 2,"y2": 4,"invest":0},
+ { "id":4,"city": "Los Angeles","y0": 0,"y1": 1.4,"y2": 2.8,"invest":0}]
